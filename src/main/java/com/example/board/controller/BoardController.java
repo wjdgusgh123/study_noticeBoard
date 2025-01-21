@@ -35,4 +35,11 @@ public class BoardController {
         model.addAttribute("list",boardService.boardList());
         return "boardlist";
     }
+
+    @GetMapping("/board/view") //localhost:8090/board/view?id=1
+    public String boardView(Model model, @RequestParam(name ="id") Integer id){
+
+        model.addAttribute("board",boardService.boardView(id));
+        return "boardview";
+    }
 }
